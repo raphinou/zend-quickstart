@@ -30,3 +30,13 @@ NameVirtualHost *:10084
     </Directory>
 </VirtualHost>
 
+Creating the database
+=====================
+
+Install Sqlite3: 
+  apt-get install sqlite3
+And create the database manually:
+  sqlite3 data/db/guestbook.db
+At that time you can enter the sql queries on the CLI.
+
+
