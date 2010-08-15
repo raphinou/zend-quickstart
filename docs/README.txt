@@ -11,20 +11,22 @@ application to it's final production location.
 Setting Up Your VHOST
 =====================
 
-The following is a sample VHOST you might want to consider for your project.
+Here's the virtual host config I used, my VirtualBox had ip 192.168.1.4.
+I could then access the index controller on http://192.168.1.4:10084
 
-<VirtualHost *:80>
-   DocumentRoot "/home/rb/zend/quickstart/public"
-   ServerName quickstart.local
+Listen *:10084
+NameVirtualHost *:10084
+<VirtualHost *:10084>
+   ServerName 192.168.1.4
+    DocumentRoot /home/rb/zend/quickstart/public/
 
-   # This should be omitted in the production environment
-   SetEnv APPLICATION_ENV development
-    
-   <Directory "/home/rb/zend/quickstart/public">
-       Options Indexes MultiViews FollowSymLinks
-       AllowOverride All
-       Order allow,deny
-       Allow from all
-   </Directory>
-    
+    SetEnv APPLICATION_ENV "development"
+
+    <Directory /home/rb/zend/quickstart/public>
+        DirectoryIndex index.php
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
 </VirtualHost>
+
