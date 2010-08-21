@@ -21,6 +21,15 @@ class GuestbookController extends Zend_Controller_Action
     }
 
 
+  public function postDispatch()
+    {
+        $response = $this->getResponse();
+        $view = new Zend_View();
+        $view->setBasePath(APPLICATION_PATH.'/views');
+        $response->append('footer', $view->render('footer.phtml'));
+    }
+
+
 
 
     public function indexAction()
