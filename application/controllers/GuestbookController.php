@@ -8,6 +8,21 @@ class GuestbookController extends Zend_Controller_Action
         /* Initialize action controller here */
     }
 
+
+    public function preDispatch() {
+	   $action = $this->getRequest()->getActionName();
+	   
+	   if ($action=='indexalias')
+	   {
+		   error_log($action);
+		   $this->_forward('index');
+		   return;
+	   }
+    }
+
+
+
+
     public function indexAction()
     {
         $guestbook = new Application_Model_GuestbookMapper();
