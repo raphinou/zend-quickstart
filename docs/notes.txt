@@ -1,0 +1,45 @@
+Dispatching
+===========
+http://framework.zend.com/manual/en/zend.controller.dispatcher.html
+
+Dispatching happens in a loop in the front controller. Before dispatching
+occurs, the front controller routes the request to find user specified values
+for the module, controller, action, and optional parameters. It then enters a
+dispatch loop, dispatching the request.
+
+At the beginning of each iteration, it sets a flag in the request object
+indicating that the action has been dispatched. If an action or pre or
+postDispatch plugin resets that flag, the dispatch loop will continue and
+attempt to dispatch the new request. By changing the controller and/or action
+in the request and resetting the dispatched flag, the developer may define a
+chain of requests to perform. 
+
+preDispatch
+===========
+
+When you call _forward, it changes the action to be run, but not the params. So don't check for the current action with 
+  $action = $this->getRequest()->getParam('action');
+but with 
+  $action = $this->getRequest()->getActionName();
+You also have access to the controller with 
+  $action = $this->getRequest()->getControllerName();
+
+Getting parameters
+==================
+http://framework.zend.com/manual/en/zend.controller.request.html
+
+Note: getParam() Retrieves More than User Parameters
+In order to do some of its work, getParam() actually retrieves from several
+sources. In order of priority, these include: user parameters set via
+setParam(), GET parameters, and finally POST parameters. Be aware of this when
+pulling data via this method.
+If you wish to pull only from parameters you set via setParam(), use the
+getUserParam(). 
+
+postDispatch
+============
+You can append segments to the response object, which are made available as layout variables.
+Example:
+  $response->append('footer', $view->render('footer.phtml'));
+Will be available in the layout under
+  <?php echo $this->layout()->footer; ?>
