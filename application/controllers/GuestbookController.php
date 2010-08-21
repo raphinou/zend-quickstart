@@ -34,8 +34,14 @@ class GuestbookController extends Zend_Controller_Action
 
     public function indexAction()
     {
+	$entries_hash=array();
         $guestbook = new Application_Model_GuestbookMapper();
-                $this->view->entries = $guestbook->fetchAll();
+        $this->view->entries = $guestbook->fetchAll();
+	// Initializing entries in hash format for partialLoop
+	foreach($this->view->entries as $entry) {
+		$entries_hash[]=array("comment" => $entry->getComment(), "email" => $entry->getEmail());
+	} 
+	$this->view->entries_hash=$entries_hash;
     }
 
     public function signAction()

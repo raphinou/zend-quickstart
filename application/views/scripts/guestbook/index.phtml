@@ -7,9 +7,10 @@
     true) ?>">Sign Our Guestbook</a></p>
  
 Guestbook Entries: <br />
+
+
 <dl>
-    <?php foreach ($this->entries as $entry): ?>
-    <dt><?php echo $this->escape($entry->email) ?></dt>
-    <dd><?php echo $this->escape($entry->comment) ?></dd>
-    <?php endforeach ?>
+    <?php echo $this->partialLoop('guestbook/entries.phtml', $this->entries_hash ); ?>
 </dl>
+
+

@@ -43,3 +43,8 @@ Example:
   $response->append('footer', $view->render('footer.phtml'));
 Will be available in the layout under
   <?php echo $this->layout()->footer; ?>
+
+partialLoop
+===========
+As explained here http://cogo.wordpress.com/2008/04/25/using-objects-with-zend_views-partialloop-helper/
+you cannot use object directly with partialLoop. I thus built a array of hash rather than theworkaround explained.
