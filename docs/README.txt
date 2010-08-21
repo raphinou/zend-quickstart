@@ -7,6 +7,17 @@ manual files generated or hand written.  Ideally, this directory would remain
 in your development environment only and should not be deployed with your
 application to it's final production location.
 
+Installing the zend framework
+=============================
+Details at 
+http://files-source.zend.com/help/Zend-Server-Community-Edition/zend-server-community-edition.htm#deb_installation.htm
+
+Add this line to /etc/apt/sources.list
+
+deb http://repos.zend.com/zend-server/deb server non-free
+
+and install it with 
+
 
 Setting Up Your VHOST
 =====================
