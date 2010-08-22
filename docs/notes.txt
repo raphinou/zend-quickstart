@@ -48,3 +48,10 @@ partialLoop
 ===========
 As explained here http://cogo.wordpress.com/2008/04/25/using-objects-with-zend_views-partialloop-helper/
 you cannot use object directly with partialLoop. I thus built a array of hash rather than theworkaround explained.
+
+
+View helpers
+============
+
+over view of http://framework.zend.com/manual/en/zend.view.helpers.html
+

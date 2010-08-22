@@ -17,6 +17,10 @@ Add this line to /etc/apt/sources.list
 deb http://repos.zend.com/zend-server/deb server non-free
 
 and install it with 
+install aptitude install zend-server-ce-php-5.2 #or 5.3
+
+Add the alias to zf.sh command:
+alias zf='/usr/local/zend/share/ZendFramework/bin/zf.sh'
 
 
 Setting Up Your VHOST
@@ -40,6 +44,12 @@ NameVirtualHost *:10084
         Allow from all
     </Directory>
 </VirtualHost>
+
+
+Web console
+===========
+A web console is available at 
+   http://localhost:10081/
 
 Creating the database
 =====================
